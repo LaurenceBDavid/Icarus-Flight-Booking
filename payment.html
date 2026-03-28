@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment | ICARUS</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="profile-fix.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+ <nav class="navbar" id="index">
+  <button class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="logo">ICARUS</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html#index">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#cheap">Popular Destinations</a>
+  </div>
+  <div id="userSection"></div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- PAYMENT SECTION -->
+  <section class="payment-section fade-up">
+    <div class="payment-container">
+
+      <!-- LEFT SIDE: FLIGHT SUMMARY -->
+      <div class="payment-flight-box">
+        <h2><i class="fas fa-plane-departure"></i> Flight Summary</h2>
+        <div id="flightSummary"></div>
+      </div>
+
+      <!-- RIGHT SIDE: PAYMENT FORM -->
+      <form class="payment-form" id="paymentForm">
+        <h2><i class="fas fa-user"></i> Passenger Information</h2>
+
+        <div class="payment-input">
+          <label>Full Name *</label>
+          <input type="text" id="fullName" required placeholder="Enter full name as on ID">
+        </div>
+
+        <div class="payment-input">
+          <label>Email Address *</label>
+          <input type="email" id="email" required placeholder="your@email.com">
+        </div>
+
+        <div class="payment-input">
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="+63 900 000 0000">
+        </div>
+
+        <h2 style="margin-top:30px;"><i class="fas fa-credit-card"></i> Payment Method</h2>
+
+        <div class="payment-input">
+          <label>Card Number *</label>
+          <input type="text" id="cardNumber" maxlength="16" required placeholder="1234 5678 9012 3456">
+        </div>
+
+        <div class="payment-row">
+          <div class="payment-input">
+            <label>Expiry Date *</label>
+            <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+          </div>
+          <div class="payment-input">
+            <label>CVV *</label>
+            <input type="text" id="cardCVV" maxlength="3" required placeholder="123">
+          </div>
+        </div>
+
+        <button type="submit" class="payment-btn">
+          <i class="fas fa-lock"></i> Confirm Payment
+        </button>
+        
+        <p style="text-align:center; font-size:0.85rem; color:#666; margin-top:15px;">
+          <i class="fas fa-shield-alt"></i> Your payment information is secure and encrypted
+        </p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footercontainer fade-up">
+      <div class="socialIcons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <div class="footer-top"><h2>ICARUS</h2></div>
+      <div class="cpr"><h3>© 2025 ICARUS. All Rights Reserved.</h3></div>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a2d9d6a04c.js"></script>
+  <script>
+    window.addEventListener("scroll", () => {
+      const navbar = document.querySelector(".navbar");
+      navbar.classList.toggle("shrink", window.scrollY > 50);
+    });
+  </script>
+  <script src="js/menu.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/payment.js"></script>
+</body>
+</html>

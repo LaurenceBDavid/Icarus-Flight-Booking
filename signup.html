@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | ICARUS</title>
+
+  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="profile-fix.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fadeUps = document.querySelectorAll('.fade-up');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      fadeUps.forEach(el => observer.observe(el));
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+<nav class="navbar" id="index">
+  <button class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="logo">ICARUS</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html#index">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#cheap">Popular Destinations</a>
+  </div>
+  <div id="userSection"></div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- SIGNUP SECTION -->
+  <section class="signup-section fade-up">
+     <img src="ASSETS/stats.png" alt="" class="plane plane1" />
+    <div class="signup-card">
+      <h1 class="signup-title">ICARUS</h1>
+      <h2 class="signup-sub">Create Your Account</h2>
+      <p class="signup-desc">Start your adventure today</p>
+
+      <form>
+        <div class="signup-group">
+          <input type="text" required />
+          <label>Full Name</label>
+        </div>
+
+        <div class="signup-group">
+          <input type="email" required />
+          <label>Email Address</label>
+        </div>
+
+        <div class="signup-group">
+          <input type="password" required />
+          <label>Password</label>
+        </div>
+
+        <div class="signup-group">
+          <input type="password" required />
+          <label>Confirm Password</label>
+        </div>
+
+        <button type="submit" class="signup-btn-main">Register</button>
+
+        <p class="signup-switch">
+          Already have an account?
+          <a href="login.html">Login here</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footercontainer fade-up">
+      <div class="socialIcons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <div class="footer-top"><h2>ICARUS</h2></div>
+      <div class="cpr"><h3>© 2025 ICARUS. All Rights Reserved.</h3></div>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a2d9d6a04c.js" crossorigin="anonymous"></script>
+  <script>
+    window.addEventListener("scroll", () => {
+      const navbar = document.querySelector(".navbar");
+      navbar.classList.toggle("shrink", window.scrollY > 50);
+    });
+  </script>
+  <script src="js/menu.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/signup.js"></script>
+</body>
+</html>

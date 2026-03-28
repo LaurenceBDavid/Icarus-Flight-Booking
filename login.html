@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | ICARUS</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="profile-fix.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+<nav class="navbar" id="index">
+  <button class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="logo">ICARUS</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html#index">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#cheap">Popular Destinations</a>
+  </div>
+  <div id="userSection"></div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- LOGIN SECTION -->
+  <section class="login-section fade-up">
+     <img src="ASSETS/stats.png" alt="" class="plane plane1" />
+    <div class="login-card">
+      <h1 class="login-title">ICARUS</h1>
+      <h2 class="login-sub">Welcome Back</h2>
+      <p class="login-desc">Log in to continue your journey</p>
+
+      <form id="loginForm">
+        <div class="login-group">
+          <input type="text" id="loginEmail" required />
+          <label>Email or Username</label>
+        </div>
+
+        <div class="login-group">
+          <input type="password" id="loginPassword" required />
+          <label>Password</label>
+        </div>
+
+        <button type="submit" class="login-btn-main">Login</button>
+
+        <p class="login-switch">
+          Don't have an account?
+          <a href="signup.html">Register here</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footercontainer fade-up">
+      <div class="socialIcons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <div class="footer-top"><h2>ICARUS</h2></div>
+      <div class="cpr"><h3>© 2025 Icarus. All Rights Reserved.</h3></div>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a2d9d6a04c.js" crossorigin="anonymous"></script>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      const navbar = document.querySelector(".navbar");
+      navbar.classList.toggle("shrink", window.scrollY > 50);
+    });
+  </script>
+  
+  <script src="js/auth.js"></script>
+  <script>
+    // Simple inline login handler
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('loginForm');
+        
+        if (loginForm) {
+            loginForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('loginEmail').value.trim();
+                const password = document.getElementById('loginPassword').value;
+                
+                if (!email || !password) {
+                    alert('Please enter both username/email and password');
+                    return;
+                }
+                
+                const submitBtn = loginForm.querySelector('.login-btn-main');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Logging in...';
+                submitBtn.disabled = true;
+                
+                try {
+                    const formData = new FormData();
+                    formData.append('email', email);
+                    formData.append('password', password);
+                    
+                    const response = await fetch('login_handler.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        if (result.data && result.data.redirect === 'admin.html') {
+                            alert('Welcome Admin!');
+                        }
+                        window.location.href = result.data?.redirect || 'index.html';
+                    } else {
+                        alert(result.message);
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Login error: ' + error.message);
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+    });
+  </script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

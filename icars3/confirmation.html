@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Confirmed – ICARUS</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="profile-fix.css">
+
+<style>
+body {
+  background: #f8f8f8;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.confirm-wrapper {
+  max-width: 900px;
+  margin: 120px auto 60px;
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.1);
+  border: 2px solid #d4af37;
+}
+
+.success-icon {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.success-icon i {
+  font-size: 5rem;
+  color: #28a745;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+.confirm-title {
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  color: #111;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.confirm-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #d4af37;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detail-box {
+  border: 1px solid #e0e0e0;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 10px;
+  background: #fafafa;
+}
+
+.detail-box p {
+  margin: 12px 0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-box strong {
+  color: #2E3135;
+}
+
+.highlight-box {
+  background: #fff8e1;
+  border: 2px solid #d4af37;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.booking-ref {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #d4af37;
+  font-family: "Cinzel", serif;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.btn-primary, .btn-secondary {
+  flex: 1;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #d4af37;
+  color: white;
+  border: 2px solid #d4af37;
+}
+
+.btn-primary:hover {
+  background: #b8922c;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: white;
+  color: #2E3135;
+  border: 2px solid #2E3135;
+}
+
+.btn-secondary:hover {
+  background: #2E3135;
+  color: white;
+}
+
+.email-notice {
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  background: #e8f5e9;
+  border-radius: 10px;
+  color: #2e7d32;
+}
+/* Tablets */
+@media (max-width: 900px) {
+  .confirm-wrapper {
+    margin: 80px 20px;
+    padding: 35px;
+  }
+
+  .confirm-title {
+    font-size: 2.2rem;
+  }
+
+  .booking-ref {
+    font-size: 1.7rem;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 600px) {
+  .confirm-wrapper {
+    margin: 50px 15px;
+    padding: 25px;
+  }
+
+  .confirm-title {
+    font-size: 2rem;
+  }
+
+  .confirm-subtitle {
+    font-size: 1rem;
+  }
+
+  .detail-box p {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+  }
+
+  .success-icon i {
+    font-size: 4rem;
+  }
+
+  .booking-ref {
+    font-size: 1.5rem;
+  }
+}
+
+/* Extra-small screens */
+@media (max-width: 400px) {
+  .confirm-wrapper {
+    padding: 20px;
+  }
+
+  .confirm-title {
+    font-size: 1.7rem;
+  }
+
+  .booking-ref {
+    font-size: 1.3rem;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="index">
+  <button class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="logo">ICARUS</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html#index">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#cheap">Popular Destinations</a>
+  </div>
+  <div id="userSection"></div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<div class="confirm-wrapper">
+  
+  <div class="success-icon">
+    <i class="fas fa-check-circle"></i>
+  </div>
+
+  <h1 class="confirm-title">Booking Confirmed!</h1>
+  <p class="confirm-subtitle">Your flight has been successfully booked</p>
+
+  <div class="highlight-box">
+    <p style="margin:0 0 10px 0; color:#666;">Your Booking Reference</p>
+    <div class="booking-ref" id="bookingRef">LOADING...</div>
+  </div>
+
+  <h2 class="section-title">
+    <i class="fas fa-plane-departure"></i> Flight Details
+  </h2>
+  <div id="flight-details" class="detail-box">
+    <!-- JS Auto-fills here -->
+  </div>
+
+  <h2 class="section-title">
+    <i class="fas fa-user"></i> Passenger Information
+  </h2>
+  <div id="passenger-details" class="detail-box">
+    <!-- JS Auto-fills here -->
+  </div>
+
+  <h2 class="section-title">
+    <i class="fas fa-receipt"></i> Payment Summary
+  </h2>
+  <div id="payment-details" class="detail-box">
+    <!-- JS Auto-fills here -->
+  </div>
+
+  <div class="email-notice">
+    <i class="fas fa-envelope"></i> A confirmation email has been sent to your email address
+  </div>
+
+  <div class="action-buttons">
+    <a href="bookedflights.html" class="btn-primary">
+      <i class="fas fa-ticket-alt"></i> View My Bookings
+    </a>
+    <a href="index.html" class="btn-secondary">
+      <i class="fas fa-home"></i> Back to Home
+    </a>
+  </div>
+
+</div>
+
+<footer>
+    <div class="footercontainer fade-up">
+      <div class="socialIcons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <div class="footer-top"><h2>ICARUS</h2></div>
+      <div class="cpr"><h3>© 2025 ICARUS. All Rights Reserved.</h3></div>
+    </div>
+</footer>
+
+<script src="js/auth.js"></script>
+<script>
+  // Load and display confirmation data
+  document.addEventListener('DOMContentLoaded', function() {
+    const confirmationData = JSON.parse(localStorage.getItem('confirmationData'));
+    
+    if (!confirmationData) {
+      document.querySelector('.confirm-wrapper').innerHTML = `
+        <div style="text-align:center; padding:60px 20px;">
+          <i class="fas fa-exclamation-triangle" style="font-size:4rem; color:#ffc107; margin-bottom:20px;"></i>
+          <h2>No Booking Found</h2>
+          <p style="color:#666; margin:20px 0;">Please complete a booking first.</p>
+          <a href="index.html" class="btn-primary" style="display:inline-flex; width:auto;">
+            <i class="fas fa-search"></i> Search Flights
+          </a>
+        </div>
+      `;
+      return;
+    }
+    
+    // Display booking reference
+    document.getElementById('bookingRef').textContent = confirmationData.booking_reference;
+    
+    // Display flight details
+    document.getElementById('flight-details').innerHTML = `
+      <p><strong>Airline:</strong> <span>${confirmationData.airline}</span></p>
+      <p><strong>Flight Number:</strong> <span>${confirmationData.flight_number}</span></p>
+      <p><strong>Route:</strong> <span>${confirmationData.origin} (${confirmationData.origin_code}) → ${confirmationData.destination} (${confirmationData.destination_code})</span></p>
+      <p><strong>Departure:</strong> <span>${confirmationData.departure_time}</span></p>
+      <p><strong>Arrival:</strong> <span>${confirmationData.arrival_time}</span></p>
+      <p><strong>Duration:</strong> <span>${Math.floor(confirmationData.duration_minutes / 60)}h ${confirmationData.duration_minutes % 60}m</span></p>
+      <p><strong>Seat Class:</strong> <span>${confirmationData.seat_class}</span></p>
+    `;
+    
+    // Display passenger details
+    document.getElementById('passenger-details').innerHTML = `
+      <p><strong>Name:</strong> <span>${confirmationData.passenger_name}</span></p>
+      <p><strong>Email:</strong> <span class="email">${confirmationData.passenger_email}</span></p>
+      ${confirmationData.passenger_phone ? `<p><strong>Phone:</strong> <span class="email">${confirmationData.passenger_phone}</span></p>` : ''}
+    `;
+    
+    // Display payment details
+    document.getElementById('payment-details').innerHTML = `
+      <p><strong>Transaction ID:</strong> <span>${confirmationData.transaction_id}</span></p>
+      <p><strong>Payment Date:</strong> <span>${new Date(confirmationData.payment_date).toLocaleString()}</span></p>
+      <p><strong>Amount Paid:</strong> <span style="color:#28a745; font-size:1.3rem; font-weight:700;">₱${parseFloat(confirmationData.total_price).toLocaleString('en-PH', {minimumFractionDigits: 2})}</span></p>
+      <p style="margin-top:15px; padding-top:15px; border-top:1px solid #e0e0e0;"><strong>Status:</strong> <span style="color:#28a745; font-weight:600;"><i class="fas fa-check-circle"></i> PAID</span></p>
+    `;
+    
+    // Clear booking info to prevent reuse
+    localStorage.removeItem('bookingInfo');
+  });
+</script>
+<script src="js/menu.js"></script>
+</body>
+</html>

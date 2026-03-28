@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flight Details | ICARUS</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="profile-fix.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fadeUps = document.querySelectorAll('.fade-up');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      fadeUps.forEach(el => observer.observe(el));
+    });
+  </script>
+</head>
+<body>
+  <!-- NAVBAR -->
+<nav class="navbar" id="index">
+  <button class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="logo">ICARUS</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html#index">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#cheap">Popular Destinations</a>
+  </div>
+  <div id="userSection"></div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- FLIGHT DETAILS SECTION -->
+  <section class="details-section">
+    <div class="details-container fade-up">
+      <div class="header" id="flightHeader">
+        <!-- Populated by JavaScript -->
+      </div>
+
+      <!-- ITINERARY -->
+      <div class="info-section">
+        <h3>Itinerary Details</h3>
+        <div class="itinerary" id="itineraryDetails">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- FARE BREAKDOWN -->
+      <div class="info-section">
+        <h3>Fare Breakdown</h3>
+        <table class="fare-table" id="fareTable">
+          <!-- Populated by JavaScript -->
+        </table>
+      </div>
+
+      <!-- BAGGAGE INFO -->
+      <div class="info-section">
+        <h3>Baggage Information</h3>
+        <ul class="baggage-info">
+          <li>Carry-on: 1 piece up to 7kg</li>
+          <li>Checked baggage: 2 pieces up to 23kg each</li>
+          <li>Extra baggage available at additional cost</li>
+        </ul>
+      </div>
+
+      <!-- SEAT CLASS OPTIONS -->
+      <div class="info-section">
+        <h3>Seat Class & Upgrades</h3>
+        <div class="seat-options">
+          <label><input type="radio" name="seat" value="Economy" checked> Economy Class – Included</label>
+          <label><input type="radio" name="seat" value="Premium Economy"> Premium Economy – +50%</label>
+          <label><input type="radio" name="seat" value="Business"> Business Class – +200%</label>
+          <label><input type="radio" name="seat" value="First"> First Class – +400%</label>
+        </div>
+      </div>
+
+      <!-- CONTINUE BUTTON -->
+      <div class="button-container">
+        <button class="continue-btn" id="continueBtn">Continue to Payment</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footercontainer fade-up">
+      <div class="socialIcons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <div class="footer-top"><h2>ICARUS</h2></div>
+      <div class="cpr"><h3>© 2025 ICARUS. All Rights Reserved.</h3></div>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a2d9d6a04c.js" crossorigin="anonymous"></script>
+  <script>
+    window.addEventListener("scroll", () => {
+      const navbar = document.querySelector(".navbar");
+      navbar.classList.toggle("shrink", window.scrollY > 50);
+    });
+  </script>
+  <script src="js/menu.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/flightdetails.js"></script>
+</body>
+</html>

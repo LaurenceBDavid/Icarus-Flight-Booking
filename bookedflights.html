@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Bookings | ICARUS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="profile-fix.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fadeUps = document.querySelectorAll('.fade-up');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      fadeUps.forEach(el => observer.observe(el));
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+<nav class="navbar" id="index">
+  <button class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="logo">ICARUS</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html#index">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#cheap">Popular Destinations</a>
+  </div>
+  <div id="userSection"></div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- BOOKINGS SECTION -->
+  <section class="bookings-section fade-up">
+    <div class="bookings-container">
+      <div class="bookings-header">
+        <div>
+          <h1> My Bookings</h1>
+          <p>View and manage your flight reservations</p>
+        </div>
+        <button onclick="window.location.href='index.html'" class="btn-new-booking">
+          <i class="fas fa-plus"></i> New Booking
+        </button>
+      </div>
+
+      <!-- FILTER TABS -->
+      <div class="booking-tabs">
+        <button class="booking-tab active" data-status="all">
+          All Bookings <span class="tab-count" id="allCount">0</span>
+        </button>
+        <button class="booking-tab" data-status="confirmed">
+          <i class="fas fa-check-circle"></i> Confirmed <span class="tab-count" id="confirmedCount">0</span>
+        </button>
+        <button class="booking-tab" data-status="pending">
+          <i class="fas fa-clock"></i> Pending <span class="tab-count" id="pendingCount">0</span>
+        </button>
+        <button class="booking-tab" data-status="cancelled">
+          <i class="fas fa-times-circle"></i> Cancelled <span class="tab-count" id="cancelledCount">0</span>
+        </button>
+      </div>
+
+      <!-- LOADING STATE -->
+      <div id="bookingsLoading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading your bookings...</p>
+      </div>
+
+      <!-- NO BOOKINGS STATE -->
+      <div id="noBookings" class="no-bookings" style="display: none;">
+       
+        <h3>No bookings found</h3>
+        <p>You haven't made any flight reservations yet</p>
+        <button onclick="window.location.href='index.html'" class="btn-primary">
+          <p>Search Flights</p>
+        </button>
+      </div>
+
+      <!-- BOOKINGS LIST -->
+      <div id="bookingsList" class="bookings-list">
+        <!-- Populated by JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOOKING DETAILS MODAL -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeBookingModal()">&times;</span>
+      <div id="modalBody">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footercontainer fade-up">
+      <div class="socialIcons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <div class="footer-top"><h2>ICARUS</h2></div>
+      <div class="cpr"><h3>© 2025 ICARUS. All Rights Reserved.</h3></div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/bookings.js"></script>
+  <script>
+    window.addEventListener("scroll", () => {
+      const navbar = document.querySelector(".navbar");
+      navbar.classList.toggle("shrink", window.scrollY > 50);
+    });
+  </script>
+  <script src="js/menu.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/bookings.js"></script>
+</body>
+</html>
